@@ -62,16 +62,16 @@ func TestCheckFraud(t *testing.T) {
 			name: "Return the correct result of checking transactions.",
 			args: args{transactions: transactions},
 			want: []TransactionResult{
-				{Id: "1", Score: 0},
-				{Id: "2", Score: 0},
+				{Id: "1", Score: 12},
+				{Id: "2", Score: 12},
 			},
 		},
 		{
 			name: "Return the correct result of checking transactions. //same case",
 			args: args{transactions: transactions2},
 			want: []TransactionResult{
-				{Id: "1", Score: 0},
-				{Id: "2", Score: 0},
+				{Id: "1", Score: 12},
+				{Id: "2", Score: 12},
 				{Id: "3", Score: 100},
 			}},
 	}
@@ -113,14 +113,15 @@ func Test_detectSB(t *testing.T) {
 			Phone:     "48 98466-8473",
 		},
 	}
-
-	var SBFound []SuspiciousBehavior
+	SBFound := []SuspiciousBehavior{
+		{Description: "The transaction location doesn't match the phone's DDD location.", Value: 12},
+	}
 	SBFound2 := []SuspiciousBehavior{
-		{Description: "The transaction location doesn't match the customer's location.", Value: 5},
-		{Description: "The cardholder's name doesn't match the customer's name.", Value: 5},
-		{Description: "The transaction value is less than 0.", Value: 10},
-		{Description: "The payment date is in the future.", Value: 10},
-		{Description: "The Customer is a minor.", Value: 5},
+		{Description: "The transaction location doesn't match the customer's location.", Value: 12},
+		{Description: "The cardholder's name doesn't match the customer's name.", Value: 10},
+		{Description: "The transaction value is less than 0.", Value: 25},
+		{Description: "The payment date is in the future.", Value: 16},
+		{Description: "The Customer is a minor.", Value: 9},
 	}
 
 	type args struct {

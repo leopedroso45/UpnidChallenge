@@ -1,4 +1,11 @@
-{
+package domain
+
+import (
+	"reflect"
+	"testing"
+)
+
+var jsonContent = `{
   "estadoPorDdd": {
     "11": "SP",
     "12": "SP",
@@ -68,4 +75,42 @@
     "98": "MA",
     "99": "MA"
   }
+}`
+
+//TODO Finish TestGetStateByDDD
+func TestGetStateByDDD(t *testing.T) {
+	type args struct {
+		phone string
+	}
+	tests := []struct {
+		name    string
+		args    args
+		wantDdd string
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if gotDdd := GetStateByDDD(tt.args.phone); gotDdd != tt.wantDdd {
+				t.Errorf("GetStateByDDD() = %v, want %v", gotDdd, tt.wantDdd)
+			}
+		})
+	}
+}
+
+//TODO Finish TestGetStateMap
+func TestGetStateMap(t *testing.T) {
+	tests := []struct {
+		name string
+		want map[string]string
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := GetStateMap(); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("GetStateMap() = %v, want %v", got, tt.want)
+			}
+		})
+	}
 }
