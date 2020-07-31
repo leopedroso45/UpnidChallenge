@@ -11,6 +11,7 @@ import (
 func main() {
 
 	log.Println("Server running...")
+
 	router := mux.NewRouter()
 	router.HandleFunc("/v1.0/transactions", handler.GetTransactions).Methods("POST")
 	log.Fatal(http.ListenAndServe(":8000", handlers.CORS()(router)))

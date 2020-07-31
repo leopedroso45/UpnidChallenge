@@ -26,7 +26,7 @@ func CheckFraud(transactions []Transaction) []TransactionResult {
 
 	for _, transact := range transactions {
 		if transact.Validate() {
-			point := pointCounter(detectSB(transact))
+			point := PointCounter(DetectSB(transact))
 			result = append(result, TransactionResult{
 				Id:    transact.Id,
 				Score: point,
@@ -34,7 +34,7 @@ func CheckFraud(transactions []Transaction) []TransactionResult {
 
 		} else {
 			log.Printf("The Transaction id: %v has issues...", transact)
-			point := pointCounter(detectSB(transact))
+			point := PointCounter(DetectSB(transact))
 			result = append(result, TransactionResult{
 				Id:    transact.Id,
 				Score: point,
@@ -45,7 +45,7 @@ func CheckFraud(transactions []Transaction) []TransactionResult {
 	return result
 }
 
-func detectSB(transaction Transaction) []SuspiciousBehavior {
+func DetectSB(transaction Transaction) []SuspiciousBehavior {
 	var SBFound []SuspiciousBehavior
 	if transaction.IpLocation != transaction.Customer.State {
 		SBFound = append(SBFound, SuspiciousBehavior{
@@ -62,7 +62,7 @@ func detectSB(transaction Transaction) []SuspiciousBehavior {
 	if transaction.Value < 0 {
 		SBFound = append(SBFound, SuspiciousBehavior{
 			Description: "The transaction value is less than 0.",
-			Value:       8,
+			Value:       10,
 		})
 	}
 	paidAt, _ := time.Parse(layoutISO, transaction.PaidAt)
@@ -72,7 +72,7 @@ func detectSB(transaction Transaction) []SuspiciousBehavior {
 	if paidAt.After(now) {
 		SBFound = append(SBFound, SuspiciousBehavior{
 			Description: "The payment date is in the future.",
-			Value:       8,
+			Value:       10,
 		})
 	}
 	birth, _ := time.Parse(layoutBIRTH, transaction.Customer.BirthDate)
@@ -80,13 +80,13 @@ func detectSB(transaction Transaction) []SuspiciousBehavior {
 	if ages < 18 {
 		SBFound = append(SBFound, SuspiciousBehavior{
 			Description: "The Customer is a minor.",
-			Value:       4,
+			Value:       5,
 		})
 	}
 	return SBFound
 }
 
-func pointCounter(behaviorList []SuspiciousBehavior) int {
+func PointCounter(behaviorList []SuspiciousBehavior) int {
 	count := 0
 	behaviorPoints := 0
 

@@ -2,7 +2,6 @@ package domain
 
 import (
 	"github.com/go-playground/validator/v10"
-	"log"
 )
 
 var validate *validator.Validate
@@ -20,7 +19,6 @@ func (transaction Transaction) Validate() bool {
 	validate = validator.New()
 	err := validate.Struct(transaction)
 	if err != nil {
-		log.Fatalf("Error validating %v", err)
 		return false
 	}
 	return true

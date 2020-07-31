@@ -1,5 +1,6 @@
 package domain
 
+/*Customer */
 type Customer struct {
 	Id        string `json:"id" validate:"required"`
 	Name      string `json:"name" validate:"required"`
