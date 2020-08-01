@@ -9,18 +9,22 @@ import (
 	"strings"
 )
 
+/*DDD: It's an application structure which has the DDD information for each Brazilian state.*/
 type DDD struct {
-	StateToDDD map[string]string `json:"estadoPorDDD"`
+	DDDToState map[string]string `json:"estadoPorDDD"`
 }
 
+/*GetStateByDDD: Method that receives a phone number in string type and returns only the DDD.*/
 func GetStateByDDD(phone string) (ddd string) {
 	ddd = phone[:strings.IndexByte(phone, ' ')]
 	return
 }
 
+/*GetStateMap: Method opens a json file containing the DDD and state mapping and returns it.*/
 func GetStateMap() map[string]string {
 	// Open our jsonFile
-	jsonFile, err := os.Open(`../utils/ddd.json`)
+	//../utils/ddd.json
+	jsonFile, err := os.Open(`D:\go\src\github.com\leopedroso45\UpnidChallenge\utils\ddd.json`)
 	// if we os.Open returns an error then handle it
 	controller.CheckError(err)
 	fmt.Println("Successfully Opened ddd.json")
@@ -33,6 +37,6 @@ func GetStateMap() map[string]string {
 
 	// we unmarshal our byteArray which contains our
 	// jsonFile's content into 'users' which we defined above
-	json.Unmarshal(byteValue, &ddd)
-	return ddd.StateToDDD
+	_ = json.Unmarshal(byteValue, &ddd)
+	return ddd.DDDToState
 }

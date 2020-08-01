@@ -6,6 +6,7 @@ import (
 
 var validate *validator.Validate
 
+/*Transaction: It's an application structure for data storage and information processing.*/
 type Transaction struct {
 	Id           string   `json:"id" validate:"required"`
 	Value        float64  `json:"value" validate:"required"`
@@ -15,6 +16,7 @@ type Transaction struct {
 	Customer     Customer `json:"customer" validate:"required"`
 }
 
+/*Validate: It's a Transaction's function that validates its own data.*/
 func (transaction Transaction) Validate() bool {
 	validate = validator.New()
 	err := validate.Struct(transaction)

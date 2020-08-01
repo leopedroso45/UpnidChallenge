@@ -1,6 +1,7 @@
 package domain
 
 import (
+	"encoding/json"
 	"reflect"
 	"testing"
 )
@@ -79,6 +80,10 @@ var jsonContent = `{
 
 //TODO Finish TestGetStateByDDD
 func TestGetStateByDDD(t *testing.T) {
+	phoneList := []string{
+		"51 9999999",
+		"41 9999999",
+	}
 	type args struct {
 		phone string
 	}
@@ -87,7 +92,21 @@ func TestGetStateByDDD(t *testing.T) {
 		args    args
 		wantDdd string
 	}{
-		// TODO: Add test cases.
+		//test cases.
+		{
+			name: "Returns correct string according to the passed phone number.",
+			args: args{
+				phone: phoneList[0],
+			},
+			wantDdd: "51",
+		},
+		{
+			name: "Returns correct string according to the passed phone number. //same case",
+			args: args{
+				phone: phoneList[1],
+			},
+			wantDdd: "41",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -100,11 +119,18 @@ func TestGetStateByDDD(t *testing.T) {
 
 //TODO Finish TestGetStateMap
 func TestGetStateMap(t *testing.T) {
+	var ddd DDD
+	_ = json.Unmarshal([]byte(jsonContent), &ddd)
+
 	tests := []struct {
 		name string
 		want map[string]string
 	}{
-		// TODO: Add test cases.
+		//test cases.
+		{
+			name: "Checks the structure of the Json object.",
+			want: ddd.DDDToState,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

@@ -11,11 +11,16 @@ const (
 	layoutBIRTH = "2006-01-02"
 )
 
+/*TransactionResult:  It's an application structure that represents the result of the fraud check.
+Id means the transaction identifier and Score means a score from 0 to 100 of risk, being 0 (with no evidence of fraud) and 100 (with maximum risk of fraud).*/
 type TransactionResult struct {
 	Id    string `json:"id"`
 	Score int    `json:"score,string"`
 }
 
+/*SuspiciousBehavior:
+It's an application structure that represents suspicious behavior.
+It has a Description and a Value.*/
 type SuspiciousBehavior struct {
 	Description string `json:"description"`
 	Value       int    `json:"value,string"`
@@ -23,6 +28,7 @@ type SuspiciousBehavior struct {
 
 var stateMap map[string]string
 
+/*CheckFraud: Fraud check method that receives a slice of Transaction and returns a slice of TransactionResult*/
 func CheckFraud(transactions []Transaction) []TransactionResult {
 	stateMap = GetStateMap()
 	var result []TransactionResult
@@ -48,6 +54,7 @@ func CheckFraud(transactions []Transaction) []TransactionResult {
 	return result
 }
 
+/*DetectSB: Method for detecting suspicious behavior, receives a Transaction and returns a slice of SuspiciousBehavior.*/
 func DetectSB(transaction Transaction) []SuspiciousBehavior {
 	var SBFound []SuspiciousBehavior
 	ddd := GetStateByDDD(transaction.Customer.Phone)
@@ -107,6 +114,7 @@ func DetectSB(transaction Transaction) []SuspiciousBehavior {
 	return SBFound
 }
 
+/*PointCounter: Method that receives a slice of SuspiciousBehavior and returns an Int value as result.*/
 func PointCounter(behaviorList []SuspiciousBehavior) int {
 	count := 0
 	behaviorPoints := 0
