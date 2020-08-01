@@ -61,7 +61,7 @@ func TestTransaction_Validate(t *testing.T) {
 				Customer:     tt.fields.Customer,
 			}
 			if got := transaction.Validate(); got != tt.want {
-				t.Errorf("Transaction.Validate() = %v, want %v", got, tt.want)
+				t.Fatalf("Transaction.Validate() = %v, want %v", got, tt.want)
 			}
 		})
 	}

@@ -78,7 +78,7 @@ func TestCheckFraud(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := CheckFraud(tt.args.transactions); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("CheckFraud() = %v, want %v", got, tt.want)
+				t.Fatalf("CheckFraud() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -151,12 +151,12 @@ func Test_detectSB(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := DetectSB(tt.args.transaction); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("detectSB() = %v, want %v", got, tt.want)
+				t.Fatalf("detectSB() = %v, want %v", got, tt.want)
 			}
 		})
 		t.Run(tt.name+"size", func(t *testing.T) {
 			if got := DetectSB(tt.args.transaction); !reflect.DeepEqual(len(got), len(tt.want)) {
-				t.Errorf("detectSB() = %v, want %v", len(got), len(tt.want))
+				t.Fatalf("detectSB() = %v, want %v", len(got), len(tt.want))
 			}
 		})
 	}

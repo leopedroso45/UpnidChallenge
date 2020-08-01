@@ -24,7 +24,7 @@ func GetStateByDDD(phone string) (ddd string) {
 func GetStateMap() map[string]string {
 	// Open our jsonFile
 	//../utils/ddd.json
-	jsonFile, err := os.Open(`D:\go\src\github.com\leopedroso45\UpnidChallenge\utils\ddd.json`)
+	jsonFile, err := os.Open(`/app/utils/ddd.json`)
 	// if we os.Open returns an error then handle it
 	controller.CheckError(err)
 	fmt.Println("Successfully Opened ddd.json")

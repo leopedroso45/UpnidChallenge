@@ -111,7 +111,7 @@ func TestGetStateByDDD(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if gotDdd := GetStateByDDD(tt.args.phone); gotDdd != tt.wantDdd {
-				t.Errorf("GetStateByDDD() = %v, want %v", gotDdd, tt.wantDdd)
+				t.Fatalf("GetStateByDDD() = %v, want %v", gotDdd, tt.wantDdd)
 			}
 		})
 	}
@@ -135,7 +135,7 @@ func TestGetStateMap(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := GetStateMap(); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("GetStateMap() = %v, want %v", got, tt.want)
+				t.Fatalf("GetStateMap() = %v, want %v", got, tt.want)
 			}
 		})
 	}
