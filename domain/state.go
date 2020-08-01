@@ -9,18 +9,18 @@ import (
 	"strings"
 )
 
-/*DDD: It's an application structure which has the DDD information for each Brazilian state.*/
+/*DDD It's an application structure which has the DDD information for each Brazilian state.*/
 type DDD struct {
 	DDDToState map[string]string `json:"estadoPorDDD"`
 }
 
-/*GetStateByDDD: Method that receives a phone number in string type and returns only the DDD.*/
+/*GetStateByDDD Method that receives a phone number in string type and returns only the DDD.*/
 func GetStateByDDD(phone string) (ddd string) {
 	ddd = phone[:strings.IndexByte(phone, ' ')]
 	return
 }
 
-/*GetStateMap: Method opens a json file containing the DDD and state mapping and returns it.*/
+/*GetStateMap Method opens a json file containing the DDD and state mapping and returns it.*/
 func GetStateMap() map[string]string {
 	// Open our jsonFile
 	//../utils/ddd.json

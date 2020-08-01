@@ -78,7 +78,6 @@ var jsonContent = `{
   }
 }`
 
-//TODO Finish TestGetStateByDDD
 func TestGetStateByDDD(t *testing.T) {
 	phoneList := []string{
 		"51 9999999",
@@ -117,7 +116,6 @@ func TestGetStateByDDD(t *testing.T) {
 	}
 }
 
-//TODO Finish TestGetStateMap
 func TestGetStateMap(t *testing.T) {
 	var ddd DDD
 	_ = json.Unmarshal([]byte(jsonContent), &ddd)
