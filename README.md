@@ -66,12 +66,10 @@ Os objetos de transação são compostos pelos seguintes dados:
   **Code:** 200 Ok <br/>
     **Content** `{ "id" : "5f20325488b6d415454025af","score" : "9" }`
     
- 
   **Error Response**
   **Code** 400 BAD REQUEST <br/>
     **Content** `Error trying to read the request body, check if everything is correct.`
     
-
   **Sample Call**
 
 ```javascript
