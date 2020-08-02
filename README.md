@@ -1,4 +1,4 @@
-**UpChallenge** [![Go Report Card](https://goreportcard.com/badge/github.com/leopedroso45/UpnidChallenge)](https://goreportcard.com/report/github.com/leopedroso45/UpnidChallenge)
+**UpChallenge** [![Go Report Card](https://goreportcard.com/badge/github.com/leopedroso45/UpnidChallenge)](https://goreportcard.com/report/github.com/leopedroso45/UpnidChallenge) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5b7fb0784c924e20ae9ac1ecba27cb9b)](https://www.codacy.com/manual/leopedroso45/UpnidChallenge?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leopedroso45/UpnidChallenge&amp;utm_campaign=Badge_Grade) [![Maintainability](https://api.codeclimate.com/v1/badges/69487d6ab55a7f002aff/maintainability)](https://codeclimate.com/github/leopedroso45/UpnidChallenge/maintainability)
 ----
 API que avalia transações de e-commerce e devolve um score de 0 a 100 de risco, sendo 0 (sem indícios de fraude) e 100 (com máximo risco de fraude).
 
