@@ -1,4 +1,4 @@
-**UpChallenge**
+**UpChallenge** [![Go Report Card](https://goreportcard.com/badge/github.com/leopedroso45/UpnidChallenge)](https://goreportcard.com/report/github.com/leopedroso45/UpnidChallenge)
 ----
 API que avalia transações de e-commerce e devolve um score de 0 a 100 de risco, sendo 0 (sem indícios de fraude) e 100 (com máximo risco de fraude).
 

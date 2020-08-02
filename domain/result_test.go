@@ -62,17 +62,17 @@ func TestCheckFraud(t *testing.T) {
 			name: "Return the correct result of checking transactions.",
 			args: args{transactions: transactions},
 			want: []TransactionResult{
-				{Id: "1", Score: 12},
-				{Id: "2", Score: 12},
+				{ID: "1", Score: 12},
+				{ID: "2", Score: 12},
 			},
 		},
 		{
 			name: "Return the correct result of checking transactions. //same case",
 			args: args{transactions: transactions2},
 			want: []TransactionResult{
-				{Id: "1", Score: 12},
-				{Id: "2", Score: 12},
-				{Id: "3", Score: 100},
+				{ID: "1", Score: 12},
+				{ID: "2", Score: 12},
+				{ID: "3", Score: 100},
 			}},
 	}
 	for _, tt := range tests {
