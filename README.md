@@ -17,7 +17,7 @@ API que avalia transações de e-commerce e devolve um score de 0 a 100 de risco
 
   Após clonar e abrir o projeto, você pode rodar o seguinte comando: 
 
-  ```docker-compose up```
+  ```docker-compose up --build```
 
   Os testes unitários são executados durante a construção do container, se tudo ocorrer como esperado, a seguinte mensagem vai aparecer no seu terminal: 
 
