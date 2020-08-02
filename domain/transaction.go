@@ -8,10 +8,10 @@ var validate *validator.Validate
 
 /*Transaction It's an application structure for data storage and information processing.*/
 type Transaction struct {
-	Id           string   `json:"id" validate:"required"`
+	ID           string   `json:"id" validate:"required"`
 	Value        float64  `json:"value,string" validate:"required"`
 	PaidAt       string   `json:"paid_at" validate:"required"`
-	IpLocation   string   `json:"ip_location" validate:"required"`
+	IPLocation   string   `json:"ip_location" validate:"required"`
 	CardHoldName string   `json:"card_hold_name" validate:"required"`
 	Customer     Customer `json:"customer" validate:"required"`
 }

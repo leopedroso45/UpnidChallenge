@@ -8,13 +8,13 @@ import (
 func TestCheckFraud(t *testing.T) {
 	transactions := []Transaction{
 		{
-			Id:           "1",
+			ID:           "1",
 			Value:        800.00,
 			PaidAt:       "2020-01-10 09:00:00",
-			IpLocation:   "RS/BR",
+			IPLocation:   "RS/BR",
 			CardHoldName: "Michael Scott",
 			Customer: Customer{
-				Id:        "1",
+				ID:        "1",
 				Name:      "Michael Scott",
 				BirthDate: "1998-06-20",
 				State:     "RS/BR",
@@ -22,13 +22,13 @@ func TestCheckFraud(t *testing.T) {
 			},
 		},
 		{
-			Id:           "2",
+			ID:           "2",
 			Value:        900.00,
 			PaidAt:       "2019-02-15 12:45:09",
-			IpLocation:   "RS/BR",
+			IPLocation:   "RS/BR",
 			CardHoldName: "Michael Scott",
 			Customer: Customer{
-				Id:        "1",
+				ID:        "1",
 				Name:      "Michael Scott",
 				BirthDate: "1998-06-20",
 				State:     "RS/BR",
@@ -37,13 +37,13 @@ func TestCheckFraud(t *testing.T) {
 		},
 	}
 	transactions2 := append(transactions, Transaction{
-		Id:           "3",
+		ID:           "3",
 		Value:        -100.00,
 		PaidAt:       "2022-01-10 09:00:00",
-		IpLocation:   "RS/BR",
+		IPLocation:   "RS/BR",
 		CardHoldName: "Michael Scott",
 		Customer: Customer{
-			Id:        "4",
+			ID:        "4",
 			Name:      "Michael",
 			BirthDate: "2015-06-20",
 			State:     "SC/BR",
@@ -86,13 +86,13 @@ func TestCheckFraud(t *testing.T) {
 
 func Test_detectSB(t *testing.T) {
 	transaction := Transaction{
-		Id:           "1",
+		ID:           "1",
 		Value:        800.00,
 		PaidAt:       "2020-01-10 09:00:00",
-		IpLocation:   "RS/BR",
+		IPLocation:   "RS/BR",
 		CardHoldName: "Michael Scott",
 		Customer: Customer{
-			Id:        "1",
+			ID:        "1",
 			Name:      "Michael Scott",
 			BirthDate: "1998-06-20",
 			State:     "RS/BR",
@@ -100,13 +100,13 @@ func Test_detectSB(t *testing.T) {
 		},
 	}
 	transaction2 := Transaction{
-		Id:           "1",
+		ID:           "1",
 		Value:        -100.00,
 		PaidAt:       "2022-01-10 09:00:00",
-		IpLocation:   "RS/BR",
+		IPLocation:   "RS/BR",
 		CardHoldName: "Michael Scott",
 		Customer: Customer{
-			Id:        "1",
+			ID:        "1",
 			Name:      "Michael",
 			BirthDate: "2015-06-20",
 			State:     "SC/BR",

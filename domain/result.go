@@ -12,9 +12,9 @@ const (
 )
 
 /*TransactionResult It's an application structure that represents the result of the fraud check.
-Id means the transaction identifier and Score means a score from 0 to 100 of risk, being 0 (with no evidence of fraud) and 100 (with maximum risk of fraud).*/
+ID means the transaction identifier and Score means a score from 0 to 100 of risk, being 0 (with no evidence of fraud) and 100 (with maximum risk of fraud).*/
 type TransactionResult struct {
-	Id    string `json:"id"`
+	ID    string `json:"id"`
 	Score int    `json:"score,string"`
 }
 
@@ -36,7 +36,7 @@ func CheckFraud(transactions []Transaction) []TransactionResult {
 		if transact.Validate() {
 			point := PointCounter(DetectSB(transact))
 			result = append(result, TransactionResult{
-				Id:    transact.Id,
+				ID:    transact.ID,
 				Score: point,
 			})
 
@@ -44,7 +44,7 @@ func CheckFraud(transactions []Transaction) []TransactionResult {
 			log.Printf("The Transaction id: %v has issues...", transact)
 			point := PointCounter(DetectSB(transact))
 			result = append(result, TransactionResult{
-				Id:    transact.Id,
+				ID:    transact.ID,
 				Score: point,
 			})
 		}
@@ -58,17 +58,17 @@ func DetectSB(transaction Transaction) []SuspiciousBehavior {
 	var SBFound []SuspiciousBehavior
 	ddd := GetStateByDDD(transaction.Customer.Phone)
 	currentState := stateMap[ddd] + "/BR"
-	if currentState != transaction.IpLocation && transaction.IpLocation != transaction.Customer.State && currentState != transaction.Customer.State {
+	if currentState != transaction.IPLocation && transaction.IPLocation != transaction.Customer.State && currentState != transaction.Customer.State {
 		SBFound = append(SBFound, SuspiciousBehavior{
 			Description: "All location information is conflicting.",
 			Value:       25,
 		})
-	} else if transaction.IpLocation != transaction.Customer.State {
+	} else if transaction.IPLocation != transaction.Customer.State {
 		SBFound = append(SBFound, SuspiciousBehavior{
 			Description: "The transaction location doesn't match the customer's location.",
 			Value:       12,
 		})
-	} else if transaction.IpLocation != currentState {
+	} else if transaction.IPLocation != currentState {
 		SBFound = append(SBFound, SuspiciousBehavior{
 			Description: "The transaction location doesn't match the phone's DDD location.",
 			Value:       12,

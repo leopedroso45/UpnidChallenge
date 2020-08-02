@@ -2,24 +2,24 @@
 ----
 API que avalia transações de e-commerce e devolve um score de 0 a 100 de risco, sendo 0 (sem indícios de fraude) e 100 (com máximo risco de fraude).
 
-### Pré-requisitos para rodar a aplicação:
+### Pré-requisitos para rodar a aplicação
 
-- [Docker](https://docs.docker.com/)
-- [Docker-compose](https://docs.docker.com/compose/install/)
+  [Docker](https://docs.docker.com/)
+  [Docker-compose](https://docs.docker.com/compose/install/)
 
-### Instalação:
+### Instalação
 
-- Após instalar e rodar o Docker na sua máquina você estará apto a rodar nossa API.
+  Após instalar e rodar o Docker na sua máquina você estará apto a rodar nossa API.
 
-- Agora você pode clonar o repositório [UpnidChallenge](https://github.com/leopedroso45/UpnidChallenge) e abrir na sua IDE favorita. Para o desenvolvimento eu utilizei a [GoLand](https://www.jetbrains.com/pt-br/go/) da [JetBrains](https://www.jetbrains.com/pt-br/).
+  Agora você pode clonar o repositório [UpnidChallenge](https://github.com/leopedroso45/UpnidChallenge) e abrir na sua IDE favorita. Para o desenvolvimento eu utilizei a [GoLand](https://www.jetbrains.com/pt-br/go/) da [JetBrains](https://www.jetbrains.com/pt-br/).
 
-### Você está pronto!
+### Você está pronto
 
-- Após clonar e abrir o projeto, você pode rodar o seguinte comando: 
+  Após clonar e abrir o projeto, você pode rodar o seguinte comando: 
 
   ```docker-compose up```
 
-- Os testes unitários são executados durante a construção do container, se tudo ocorrer como esperado, a seguinte mensagem vai aparecer no seu terminal: 
+  Os testes unitários são executados durante a construção do container, se tudo ocorrer como esperado, a seguinte mensagem vai aparecer no seu terminal: 
 
   ```"Server running..."```
 
@@ -28,15 +28,15 @@ Caso ocorra algum problema, certifique-se que o Docker está rodando.
  **Sobre a API**
 ----
 
-* **URL**
+  **URL**
 
   /v1.0/transactions
 
-* **Method:**
+  **Method:**
 
   `POST`
 
-* **Data Params**
+  **Data Params**
 
 No corpo da requisição é necessário o envio de um ou mais objetos de transação no formato JSON.
 
@@ -62,15 +62,15 @@ Os objetos de transação são compostos pelos seguintes dados:
 ]
 ```
 
-* **Success Response:**
+  **Success Response:**
 
-  * **Code:** 200 Ok <br />
+ - **Code:** 200 Ok <br />
     **Content:** `{ "id" : "5f20325488b6d415454025af","score" : "9" }`
     
  
-* **Error Response:**
+  **Error Response:**
 
-  * **Code:** 400 BAD REQUEST <br />
+ - **Code:** 400 BAD REQUEST <br />
     **Content:** `Error trying to read the request body, check if everything is correct.`
     
 
