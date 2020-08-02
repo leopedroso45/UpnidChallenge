@@ -9,7 +9,7 @@ func TestTransaction_Validate(t *testing.T) {
 		ID           string
 		Value        float64
 		PaidAt       string
-		IpLocation   string
+		IPLocation   string
 		CardHoldName string
 		Customer     Customer
 	}
@@ -25,7 +25,7 @@ func TestTransaction_Validate(t *testing.T) {
 				ID:           "1",
 				Value:        900.00,
 				PaidAt:       "2020-01-10 09:00:00",
-				IpLocation:   "RS/BR",
+				IPLocation:   "RS/BR",
 				CardHoldName: "Michael Scott",
 				Customer: Customer{
 					ID:        "1",
@@ -43,7 +43,7 @@ func TestTransaction_Validate(t *testing.T) {
 				ID:           "Returns correct Boolean value when validation is successful.",
 				Value:        0,
 				PaidAt:       "",
-				IpLocation:   "",
+				IPLocation:   "",
 				CardHoldName: "",
 				Customer:     Customer{},
 			},
@@ -56,7 +56,7 @@ func TestTransaction_Validate(t *testing.T) {
 				ID:           tt.fields.ID,
 				Value:        tt.fields.Value,
 				PaidAt:       tt.fields.PaidAt,
-				IPLocation:   tt.fields.IpLocation,
+				IPLocation:   tt.fields.IPLocation,
 				CardHoldName: tt.fields.CardHoldName,
 				Customer:     tt.fields.Customer,
 			}
