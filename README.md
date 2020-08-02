@@ -5,6 +5,7 @@ API que avalia transações de e-commerce e devolve um score de 0 a 100 de risco
 ### Pré-requisitos para rodar a aplicação
 
   [Docker](https://docs.docker.com/)
+  
   [Docker-compose](https://docs.docker.com/compose/install/)
 
 ### Instalação
